@@ -10,6 +10,9 @@
 		1D897B8A22FDD47700EE1826 /* SwiftyService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D897B8022FDD47700EE1826 /* SwiftyService.framework */; };
 		1D897B8F22FDD47700EE1826 /* SwiftyServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D897B8E22FDD47700EE1826 /* SwiftyServiceTests.swift */; };
 		1D897B9122FDD47800EE1826 /* SwiftyService.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D897B8322FDD47700EE1826 /* SwiftyService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D897B9B22FDD4DF00EE1826 /* Swifty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D897B9A22FDD4DF00EE1826 /* Swifty.swift */; };
+		1D897B9D22FDD60700EE1826 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D897B9C22FDD60700EE1826 /* Enums.swift */; };
+		1D897BA922FDDA5D00EE1826 /* SwiftyApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D897BA822FDDA5D00EE1826 /* SwiftyApiManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +32,9 @@
 		1D897B8922FDD47700EE1826 /* SwiftyServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D897B8E22FDD47700EE1826 /* SwiftyServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyServiceTests.swift; sourceTree = "<group>"; };
 		1D897B9022FDD47800EE1826 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D897B9A22FDD4DF00EE1826 /* Swifty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swifty.swift; sourceTree = "<group>"; };
+		1D897B9C22FDD60700EE1826 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		1D897BA822FDDA5D00EE1826 /* SwiftyApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyApiManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +78,10 @@
 			isa = PBXGroup;
 			children = (
 				1D897B8322FDD47700EE1826 /* SwiftyService.h */,
+				1D897B9C22FDD60700EE1826 /* Enums.swift */,
 				1D897B8422FDD47700EE1826 /* Info.plist */,
+				1D897B9A22FDD4DF00EE1826 /* Swifty.swift */,
+				1D897BA822FDDA5D00EE1826 /* SwiftyApiManager.swift */,
 			);
 			path = SwiftyService;
 			sourceTree = "<group>";
@@ -148,6 +157,7 @@
 				TargetAttributes = {
 					1D897B7F22FDD47700EE1826 = {
 						CreatedOnToolsVersion = 11.0;
+						LastSwiftMigration = 1100;
 					};
 					1D897B8822FDD47700EE1826 = {
 						CreatedOnToolsVersion = 11.0;
@@ -195,6 +205,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D897B9D22FDD60700EE1826 /* Enums.swift in Sources */,
+				1D897B9B22FDD4DF00EE1826 /* Swifty.swift in Sources */,
+				1D897BA922FDDA5D00EE1826 /* SwiftyApiManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,13 +353,16 @@
 		1D897B9522FDD47800EE1826 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SwiftyService/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -354,7 +370,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-.SwiftyService";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -363,13 +382,16 @@
 		1D897B9622FDD47800EE1826 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SwiftyService/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -377,6 +399,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-.SwiftyService";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -386,8 +410,10 @@
 		1D897B9822FDD47800EE1826 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SwiftyServiceTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -403,8 +429,10 @@
 		1D897B9922FDD47800EE1826 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SwiftyServiceTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
