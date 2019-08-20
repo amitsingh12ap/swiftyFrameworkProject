@@ -20,6 +20,25 @@ public class SwiftyApiManager: Swifty {
 }
 
 extension SwiftyApiManager {
+   
+    public func download(formUrl urlString: String, withMethod httpMehthod: HttpMethod? = nil, completion: @escaping (DownloadResult<Data?, Failure?>) -> Void) {
+        
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = httpMehthod?.rawValue ?? HttpMethod.get.rawValue
+        let task =  createSessionTask(forURLRequest: request) { (data, failures) in
+            if let response = data {
+                completion(.success(response))
+            }
+            else{
+                completion(.failure(failures))
+            }
+        }
+        task.resume()
+       
+    }
     
     public func connectApi<T>(withEndPoint endPoint: String?, withRequestType method:HttpMethod? = nil, withParameters parameters: [String: Any]? = nil, withHeader headers: HttpHeader? = nil, decode: T.Type, completion: @escaping (Result<T?, Failure?>) -> Void) where T : Codable {
         

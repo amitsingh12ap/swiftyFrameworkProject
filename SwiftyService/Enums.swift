@@ -16,6 +16,11 @@ public enum Result<T:Codable,Failure> {
     case failure(Failure)
 }
 
+public enum DownloadResult<T:Codable,Failure> {
+    case success(Data)
+    case failure(Failure)
+}
+
 public enum Failure: Error {
     case parsingFailure
     case serviceFailure
